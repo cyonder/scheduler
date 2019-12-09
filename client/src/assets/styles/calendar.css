@@ -1,0 +1,252 @@
+/* CALENDAR LAYOUT */
+
+.calendar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header.calendar__header {
+    display: flex;
+    justify-content: center;
+    background: #F5F5F5;
+    padding: 10px 0;
+    border-bottom: 1px solid #DADCE0;
+}
+div.calendar__body {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    margin-top: 10px;
+}
+
+aside.calendar__sidebar {}
+
+main.calendar__main {
+    height: 100%;
+}
+
+.calendar__header button span{
+    margin-left: 5px;
+}
+
+/* VIEW LAYOUT */
+
+.month-view, 
+.week-view, 
+.day-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header.month-view__header, 
+header.week-view__header, 
+header.day-view__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+.month-view__body, 
+.week-view__body, 
+.day-view__body {
+    display: flex;
+    height: 100%;
+}
+
+main.month-view__main, 
+main.week-view__main, 
+main.day-view__main {
+    height: 100%;
+}
+
+/* MONTH VIEW */
+
+.month-view {}
+
+header.month-view__header {}
+
+.month-view__body {}
+
+main.month-view__main {}
+
+.month-view th.week-day-slot {
+    text-align: center;
+}
+
+/* WEEK VIEW */
+
+.week-view {}
+
+header.week-view__header {}
+
+.week-view__body {}
+
+main.week-view__main {}
+
+.week-view th.week-day-slot {
+    text-align: center;
+}
+
+/* DAY VIEW */
+
+.day-view {}
+
+header.day-view__header {}
+
+.day-view__body {}
+
+main.day-view__main {}
+
+.day-view th.week-day-slot {
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* TABLE */
+
+table {
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid transparent;  /* fix 1px bug chrome */
+}
+
+thead th, thead td, 
+tbody th, tbody td, 
+tfoot th, tfoot td {
+    font-weight: normal;
+    text-align: left;
+}
+
+.month-view td,
+.week-view td,
+.day-view td {
+    border: 1px solid #DADCE0;
+}
+
+
+.month-view th.week-day-slot,
+.week-view th.week-day-slot,
+.day-view th.week-day-slot{
+    height: 44px;
+    background-color: #FFFFFF;
+}
+
+th.week-day-slot{}
+
+.week-day-slot__day{
+    margin-right: 1px;
+}
+
+.day-view .week-day-slot__day{
+    margin-right: 5px;
+}
+
+.week-day-slot__number{
+    font-weight: 700;
+}
+
+.week-view .week-day-slot .week-day-slot__number{
+    display: inline-block;
+    min-width: 1.5em;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.week-view .week-day-slot .week-day-slot__number:hover{
+    background: #6C757d;
+    color: #FFFFFF;
+}
+
+.week-day-slot.active .week-day-slot__number{
+    display: inline-block;
+    min-width: 1.5em;
+    border-radius: 50%;
+    text-align: center;
+    background: #1684FF;
+    color: #FFFFFF;
+}
+
+.corner-slot {
+    width: 75px; /* fixed width for col */
+    text-align: center;
+    background-color: #FFFFFF;
+}
+
+.day-slot {
+    position: relative;
+    /* z-index: -1;  */
+    /* fix safari border bug */
+}
+
+@-moz-document url-prefix() {
+    .day-slot {
+        background-clip: padding-box !important; /* firefox fix for border not showing */
+    }
+}
+
+.day-slot--previous-month {}
+
+.day-slot--next-month {}
+
+.day-slot--weekend {
+    background: #F5F5F5;
+}
+
+.day-slot__content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.day-slot__date {
+    font-size: 0.875rem;
+    text-align: center;
+    padding-top: 3px;
+}
+
+.day-slot__month {
+    margin-right: 1px;
+}
+
+.day-slot__number {
+    display: inline-block;
+    min-width: 1.5em;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;  
+}
+
+.month-view .day-slot__number:hover{
+    background: #6C757d !important;
+    color: #FFFFFF;
+}
+
+.day-slot.active .day-slot__number {
+    background: #1684FF;
+    color: #FFFFFF;
+}
+
+.time-slot {}
+
+.time-slot__content {}
+
+.time-slot--weekend{
+    background: #F5F5F5;
+}
+
+.day-time-slot {
+    background-color: #FFFFFF;
+    text-align: right;
+    font-size: 0.75rem;
+    height: 34px;
+    padding-right: 10px;
+}
